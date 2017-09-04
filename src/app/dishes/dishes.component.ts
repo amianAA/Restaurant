@@ -8,14 +8,13 @@ import { DishService } from '../dish.service';
   templateUrl: './dishes.component.html',
   styleUrls: ['./dishes.component.css']
 })
-export class DishesComponent {
+export class DishesComponent implements OnInit {
   dishes: Dish[];
   selectedDish: Dish;
-
   constructor(private dishService: DishService) { }
 
   getDishes (): void {
-    this.dishService.getDishes().then(dishes => this.dishes = dishes)
+    this.dishService.getDishes().then(dishes => this.dishes = dishes);
   }
   ngOnInit(): void {
     this.getDishes();

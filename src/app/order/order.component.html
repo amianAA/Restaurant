@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <h3>Menú:</h3>
+  <ul class="orderList">
+    <li *ngFor="let order of orderList" class="row">
+      <div class="mt-1 col-8">
+        {{ order.quant }}x {{ order.name }} ({{ order.price }}€/ud): {{ ((order.price * order.quant * 100) - (order.price * order.quant * 100) % 1) / 100 }}€
+      </div>
+      <div class="mt-1 col-4">
+        <button (click)="increment(order.id)" [ngClass]='order.id + " btn-default"'>+</button>
+        <button (click)="remove(order.id)" [ngClass]='order.id + " btn-default"'>-</button>
+      </div>
+    </li>
+  </ul>
+  Total: {{ menuCost }} €
+</div>

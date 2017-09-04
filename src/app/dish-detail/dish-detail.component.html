@@ -1,5 +1,5 @@
 <div *ngIf="dish">
-  <h2>{{dish.name}}:</h2>
+  <h2 style="height: 60px">{{dish.name}}:</h2>
   <div>
     <label>Plato nº: {{dish.id}}</label>
   </div>
@@ -7,6 +7,12 @@
     <label>Descripción: {{dish.description}}</label>
   </div>
   <div>
-    <label>price: {{dish.price}} €</label>
+    <label>Precio: {{dish.price}} €</label>
+  </div>
+  <div>
+    <img src="https://webjaen.files.wordpress.com/2009/12/523.jpg" alt="{{dish.name}} picture">
+  </div>
+  <div>
+    <button (click)="addDishToOrder()" class="btn-default mt-2">Añadir al menú</button>
   </div>
 </div>

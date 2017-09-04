@@ -1,13 +1,24 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <h1>
-    Welcome to {{title}}
-  </h1>
-  <h2>Nuestros platos</h2>
-  <ul class="dishes">
-    <li *ngFor="let dish of dishes" [class.selected]="dish === selectedDish" (click)="onSelect(dish)">
-      <span class="badge">{{dish.id}}</span> {{dish.name}}
-    </li>
-  </ul>
-  <app-dish-detail [dish]="selectedDish"></app-dish-detail> <!-- En el tutorial lo pone sin "app" ojo! -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3">
+      <h2>Nuestros platos</h2>
+      <ul class="dishes">
+        <div *ngFor = "let dish of dishes" [class.selected]="dish === selectedDish" (click)="onSelect(dish)">
+          <li *ngIf = "dish.category == 'PEQUEÑOS SUSURROS'"><span class="badge">{{dish.id}}</span> {{dish.name}}</li>
+        </div>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <app-dish-detail [dish]="selectedDish">
+          <!-- ojo que tiene que llevar siempre "app"! -->
+        </app-dish-detail>
+      </div>
+      <div class="col-6">
+        <app-order></app-order>
+        <!-- ojo que tiene que llevar siempre "app"! -->
+      </div>
+    </div>
+  </div>
 </div>
