@@ -28,14 +28,14 @@ export class DishesComponent implements OnInit {
   onSelect(dish: Dish): void {
     this.selectedDish = dish;
   }
-  categoriesKnown() { // Con esta función se construye un array con las categorías de los platos
+  categoriesKnown() { // With this function an array is built with the differents dishes categories
     for (var dish in this.dishes) {
       if(this.dishesCategories.indexOf(this.dishes[dish].category) < 0){
         this.dishesCategories.push(this.dishes[dish].category);
       }
     }
   }
-  selectCategory(category) {
+  selectCategory(category) { // A function to pass to the HTML template the selected category
     this.selectedCategory = category;
   }
 }

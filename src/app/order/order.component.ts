@@ -20,10 +20,9 @@ export class OrderComponent {
     this.data.currentOrderList.subscribe(orderList => this.orderList = orderList);
   }
 
-  ngDoCheck () {
+  ngDoCheck () { // Angular is listening all time for changes, if this happens, it update the shopping cart with new values
     if (this.orderList !== this.oldList)
     this.data.currentOrderList.subscribe(orderList => this.orderList = orderList);
-    // console.log(this.orderList, this.orderList.length);
     this.oldList = this.orderList;
     this.menuCost = 0;
     for (var order in this.orderList) {
@@ -31,7 +30,7 @@ export class OrderComponent {
     }
     this.menuCost = Math.round(this.menuCost * 100) / 100;
   }
-  remove(order): void {
+  remove(order): void { // function to remove items from the shopping cart
     for (var dish in this.orderList) {
       if (order === this.orderList[dish].id){
         this.orderList[dish].quant -= 1
@@ -41,7 +40,7 @@ export class OrderComponent {
       }
     }
   }
-  increment(order): void {
+  increment(order): void { // function to add items to the shopping cart (it can be done also from the dishes-details button)
     for (var dish in this.orderList) {
       if (order === this.orderList[dish].id){
         this.orderList[dish].quant += 1

@@ -1,6 +1,7 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { OrderService } from '../order.service';
 
+// Import the Dish class and DISHES data objects array
 import { Dish } from '../dish';
 import { DISHES } from '../data-dishes';
 
@@ -20,8 +21,10 @@ export class DishDetailComponent implements OnInit  {
   constructor(private data: OrderService) { }
 
   ngOnInit () {
+    // share dishes data between this component and order.component
     this.data.currentOrderList.subscribe(orderList => this.orderList = orderList);
   }
+  // given the dish name and the dishes array, this function returns on click to the HTML template the index of the dish to add to the shopping cart.
   addDishToOrder() {
     function search(nameKey, myArray){
     for (var i=0; i < myArray.length; i++) {
@@ -30,9 +33,11 @@ export class DishDetailComponent implements OnInit  {
         }
       }
     }
+    // return the total amount of one dish kind
     function totalDishPrice(price, quant) {
           return price*quant;
         }
+    // loop to know if one dish DOES NOT exists in the order, in this case, the function adds it.
     if (search(this.dish.name, this.orderList) === undefined){
       this.order.push({
         id: this.dish.id,
@@ -41,7 +46,7 @@ export class DishDetailComponent implements OnInit  {
         quant: 1
         });
     }
-    else {
+    else { // If exists, just increment the quantity
       var i = search(this.dish.name, this.orderList);
       this.orderList[i].quant += 1;
     }
