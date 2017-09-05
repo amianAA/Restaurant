@@ -27,5 +27,7 @@ Not built yet. It should contains further info about the restaurant.
 
 Not built yet. It should contains contact info such as telephone, location (Google Maps - @agm), and form to send an email to the company.
 
+# ALL DATA IS IN DATA-DISHES.TS
+
 
 
