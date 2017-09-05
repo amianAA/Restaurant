@@ -1,0 +1,15 @@
+h2, h5{
+  margin-left: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.content{
+  margin-left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+}
+button {
+  background-color: #C0A581;
+  border-radius: 5px;
+  color: white;
+}

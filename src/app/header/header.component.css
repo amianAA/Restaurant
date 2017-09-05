@@ -1,0 +1,33 @@
+header {
+  height: 150px;
+  background-color: white;
+}
+#logo-img {
+  height: 180px;
+  width: auto;
+  margin-left: 50px;
+  margin-top: -20px;
+  align-self: center;
+}
+#logo-text {
+  height: 150px;
+  width: auto;
+  margin-left: 100px;
+}
+.nav{
+  align-items: center;
+  margin-bottom: -50px;
+  margin-right: -20px;
+}
+ul{
+  display: inline;
+    color: #2C2C2C;
+}
+a {
+  margin: 0 10px;
+  color: #2C2C2C;
+}
+li{
+  text-decoration: none;
+  font-size: 1.35em;
+}

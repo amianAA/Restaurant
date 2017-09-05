@@ -1,18 +1,21 @@
 <div *ngIf="dish">
-  <h2 style="height: 60px">{{dish.name}}:</h2>
-  <div>
-    <label>Plato nº: {{dish.id}}</label>
-  </div>
-  <div>
-    <label>Descripción: {{dish.description}}</label>
-  </div>
-  <div>
-    <label>Precio: {{dish.price}} €</label>
-  </div>
-  <div>
-    <img src="https://webjaen.files.wordpress.com/2009/12/523.jpg" alt="{{dish.name}} picture">
-  </div>
-  <div>
-    <button (click)="addDishToOrder()" class="btn-default mt-2">Añadir al menú</button>
+  <div class="dish-details">
+    <h2 style="height: 60px">{{dish.name}}:</h2>
+    <div class="row">
+      <div class="col-6">
+        <img src="{{ dish.pic }}" alt="{{dish.name}} picture">
+      </div>
+      <div class="col-6">
+        <div class="description">
+          <label><strong>Descripción:</strong> {{dish.description}}</label>
+        </div>
+        <div>
+          <label><strong>Precio:</strong> {{dish.price}} € IVA Inc.</label>
+        </div>
+        <div class="row button-div justify-content-center">
+          <button (click)="addDishToOrder()" class="btn-default mt-2"><strong>Añadir al menú</strong></button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

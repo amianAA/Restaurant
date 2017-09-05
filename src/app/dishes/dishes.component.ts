@@ -11,15 +11,31 @@ import { DishService } from '../dish.service';
 export class DishesComponent implements OnInit {
   dishes: Dish[];
   selectedDish: Dish;
-  constructor(private dishService: DishService) { }
+  dishesCategories = [];
+  selectedCategory;
+
+  constructor (private dishService: DishService) {
+    this.getDishes()
+  }
 
   getDishes (): void {
     this.dishService.getDishes().then(dishes => this.dishes = dishes);
+    this.categoriesKnown();
   }
   ngOnInit(): void {
     this.getDishes();
   }
   onSelect(dish: Dish): void {
     this.selectedDish = dish;
+  }
+  categoriesKnown() { // Con esta función se construye un array con las categorías de los platos
+    for (var dish in this.dishes) {
+      if(this.dishesCategories.indexOf(this.dishes[dish].category) < 0){
+        this.dishesCategories.push(this.dishes[dish].category);
+      }
+    }
+  }
+  selectCategory(category) {
+    this.selectedCategory = category;
   }
 }
